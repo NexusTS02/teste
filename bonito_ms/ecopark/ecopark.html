@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <!-- Configuração básica da página -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Links para os estilos -->
+    <link rel="stylesheet" href="../../style.css"> 
+    <link rel="stylesheet" href="ecopark.css">
+    
+    <!-- Título da página -->
+    <title>Eco Park Porto da Ilha</title>
+</head>
+<body>
+    <!-- Cabeçalho da página -->
+    <header>
+        <div class="logo">
+            <!-- Logo e título -->
+            <img src="../../imagens/logo/logo.png" alt="Eco Tour">
+            <h1>Eco Tour</h1>
+        </div>
+    </header>
+
+    <!-- Barra de navegação -->
+    <nav class="menu">
+        <ul>
+            <!-- Links para diferentes seções da página -->
+            <li><a href="../../index.html">Início</a></li>
+            <li><a href="../../dicas_eco.html">Dicas Eco</a></li>
+            <li class="submenu">
+                <!-- Menu suspenso de Locais Turísticos -->
+                <a href="#">Locais Turísticos</a>
+                <ul class="submenu-list">
+                    <!-- Links para destinos turísticos específicos -->
+                    <li><a href="../bonito_ms.html">Bonito-MS</a></li>
+                    <li><a href="destino2.html">Jalapão-TO</a></li>
+                    <li><a href="destino3.html">Chapada Diamantina-BA</a></li>
+                    <li><a href="destino4.html">Lençóis Maranhenses-MA</a></li>
+                    <li><a href="destino5.html">Serra do Cipo-MG</a></li>
+                    <li><a href="destino6.html">Ilha Grande-RJ</a></li>
+                </ul>
+            </li>
+            <li><a href="../../nossa_missao.html">Nossa Missão</a></li>
+        </ul>
+    </nav>
+
+    <!-- Seção principal da página -->
+    <section>
+        <!-- Quadrado - Eco Park Porto da Ilha -->
+        <div class="quadrado centralizado">
+            <div class="conteudo">
+                <!-- Título e imagem do Eco Park -->
+                <h3>Eco Park Porto da Ilha</h3>
+                <img src="caminho_para_sua_imagem/imagem_ecopark.jpg" alt="Eco Park Porto da Ilha">
+                <div class="overlay">
+                    <!-- Descrição e informações sobre o Eco Park -->
+                    <p>
+                        O Eco Park Porto da Ilha oferece uma experiência única em meio à natureza.
+                        Descubra aventuras emocionantes, paisagens deslumbrantes e muito mais.
+                    </p>
+                    <ul>
+                        <!-- Lista de atividades disponíveis no Eco Park -->
+                        <li>Passeio de bote, caiaque e stand-up paddle</li>
+                        <li>Bike Boat, Barco Elétrico e Boaia Cross</li>
+                        <li>Day Use no Balneário</li>
+                        <!-- Adicione mais informações conforme necessário -->
+                    </ul>
+                </div>
+                <!-- Botão Saiba Mais -->
+                <a href="link_para_mais_informacoes" class="botao">Saiba Mais</a>
+            </div>
+        </div>
+
+        <!-- Mapa do Eco Park -->
+        <div class="mapa centralizado">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3721.7961070509273!2d-56.389090224741075!3d-21.120693480551687!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x947cf7e2736d1f19%3A0xce655a6684dda7ef!2sEco%20Park%20Porto%20da%20Ilha!5e0!3m2!1spt-BR!2sbr!4v1700287578342!5m2!1spt-BR!2sbr" width="100%" height="600" style="border: 0px solid #333;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+    </section>
+
+    <!-- Seção de Avaliação -->
+    <section class="avaliacao centralizado">
+        <!-- Título da seção de avaliação -->
+        <h3>Avalie o Eco Park Porto da Ilha</h3>
+        <p>Deixe sua avaliação:</p>
+        <div>
+            <!-- Formulário de avaliação -->
+            <label for="nome">Nome:</label>
+            <input type="text" id="nome" placeholder="Seu nome">
+    
+            <label for="sobrenome">Sobrenome:</label>
+            <input type="text" id="sobrenome" placeholder="Seu sobrenome">
+    
+            <!-- Alteração do rótulo para refletir a escala de 0 a 5 -->
+            <label for="nota">Avaliação (de 0 a 5 estrelas):</label>
+            <input type="number" id="nota" min="0" max="5" placeholder="Sua avaliação">
+    
+            <!-- Botões para avaliar e resetar histórico -->
+            <button onclick="adicionarAvaliacao()">Avaliar</button>
+            <button onclick="resetarHistoricoAvaliacoes()">Resetar Histórico</button>
+        </div>
+    
+        <!-- Local para exibir o histórico de avaliações -->
+        <div id="historico-avaliacoes">
+            <!-- Aqui será exibido o histórico de avaliações -->
+        </div>
+    
+        <!-- Local para exibir a média das avaliações -->
+        <div id="media-avaliacoes">
+            <!-- Aqui será exibida a média das avaliações -->
+        </div>
+    </section>
+
+    <!-- Rodapé da página -->
+    <footer>
+        <p>&copy; 2023 EcoTour. Todos os direitos reservados. <u>Dev by Rodrigo Tavares</u></p>
+    </footer>
+<script>
+    // Senha para acessar o botão de resetar histórico
+    const senhaResetarHistorico = "1234";
+
+    // Função para exibir o histórico de avaliações
+    function exibirHistoricoAvaliacoes() {
+        const avaliacoes = JSON.parse(localStorage.getItem('avaliacoes')) || [];
+        const historicoElement = document.getElementById('historico-avaliacoes');
+
+        historicoElement.innerHTML = '<h4>Histórico de Avaliações:</h4>';
+        avaliacoes.forEach(avaliacao => {
+            historicoElement.innerHTML += `<p>${avaliacao.nome} ${avaliacao.sobrenome}: ${avaliacao.nota} estrelas</p>`;
+        });
+    }
+
+    // Função para exibir a média das avaliações
+    function exibirMediaAvaliacoes() {
+        const avaliacoes = JSON.parse(localStorage.getItem('avaliacoes')) || [];
+        const media = calcularMediaAvaliacoes(avaliacoes);
+        const mediaElement = document.getElementById('media-avaliacoes');
+
+        if (isNaN(media) || avaliacoes.length === 0) {
+            mediaElement.innerHTML = `<h4>Média de Avaliações: N/A</h4>`;
+        } else {
+            const estrelasInteiras = Math.floor(media);
+            const estrelaFracionada = media - estrelasInteiras;
+
+            // Cria a representação visual das estrelas
+            let estrelasHTML = '';
+            for (let i = 0; i < estrelasInteiras; i++) {
+                estrelasHTML += '★';  // Estrela cheia
+            }
+
+            if (estrelaFracionada > 0) {
+                estrelasHTML += '☆';  // Estrela vazia
+            }
+
+            mediaElement.innerHTML = `<h4>Média de Avaliações: ${estrelasHTML} (${media.toFixed(2)})</h4>`;
+        }
+    }
+
+    // Função para adicionar uma nova avaliação
+    function adicionarAvaliacao() {
+        const nome = document.getElementById('nome').value;
+        const sobrenome = document.getElementById('sobrenome').value;
+        const nota = parseFloat(document.getElementById('nota').value);
+
+        if (nome && sobrenome && !isNaN(nota) && nota >= 0 && nota <= 5) {
+            // Obtém avaliações existentes ou cria um array vazio
+            const avaliacoes = JSON.parse(localStorage.getItem('avaliacoes')) || [];
+
+            // Adiciona a nova avaliação ao array existente
+            const novaAvaliacao = { nome, sobrenome, nota };
+            avaliacoes.push(novaAvaliacao);
+
+            // Atualiza o armazenamento local com o novo array
+            localStorage.setItem('avaliacoes', JSON.stringify(avaliacoes));
+
+            // Exibe o histórico e a média atualizados
+            exibirHistoricoAvaliacoes();
+            exibirMediaAvaliacoes();
+        } else {
+            alert('Por favor, preencha todos os campos corretamente e forneça uma nota de 0 a 5.');
+        }
+    }
+
+    // Função para resetar o histórico de avaliações (com senha)
+    function resetarHistoricoAvaliacoes() {
+        const senhaDigitada = prompt("Digite a senha para resetar o histórico:");
+
+        if (senhaDigitada === senhaResetarHistorico) {
+            localStorage.removeItem('avaliacoes');
+            // Atualiza o histórico e a média
+            exibirHistoricoAvaliacoes();
+            exibirMediaAvaliacoes();
+        } else {
+            alert('Senha incorreta. Ação cancelada.');
+        }
+    }
+
+    // Função para obter a média das avaliações
+    function calcularMediaAvaliacoes(avaliacoes) {
+        if (avaliacoes.length === 0) return 0;
+        const total = avaliacoes.reduce((soma, avaliacao) => soma + avaliacao.nota, 0);
+        return total / avaliacoes.length;
+    }
+
+    // Exemplo: Adiciona uma avaliação quando a página é carregada
+    exibirHistoricoAvaliacoes();
+    exibirMediaAvaliacoes();
+</script>
+</body>
+</html>
+

@@ -1,0 +1,75 @@
+.quadrado {
+    position: relative;
+    overflow: hidden;
+    height: 950px;
+    margin: 20px 2.5%;
+    border: 3px solid #333;
+    box-sizing: border-box;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.quadrado .conteudo {
+    padding: 12px;
+    box-sizing: border-box;
+    text-align: center;
+    position: relative;
+}
+
+.quadrado h3 {
+    color: #11111f;
+    font-size: 30px;
+    margin: 10px 0;
+}
+
+.quadrado a {
+    display: block;
+}
+
+.quadrado img {
+    max-width: 100%;
+    height: auto;
+    transition: transform 0.3s ease-in-out;
+    cursor: pointer;
+    display: block;
+    margin: auto;
+    border: 3px solid #333;
+    box-sizing: border-box;
+}
+
+.quadrado .overlay {
+    font-size: large;
+    color: rgb(0, 0, 0);
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+.quadrado ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: left;
+}
+
+.quadrado li {
+    margin-bottom: 5px;
+    padding-left: 20px;
+    position: relative;
+}
+
+.quadrado p {
+    font-size: 20px;
+    margin-bottom: 0px;
+    padding: 0 20px 20px 20px;
+    position: relative;
+}
+
+.quadrado li:before {
+    content: "\2022";
+    color: #2E7D32;
+    font-weight: bold;
+    display: inline-block;
+    width: 1em;
+    margin-left: -1em;
+    position: absolute;
+}

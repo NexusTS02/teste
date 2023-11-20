@@ -1,0 +1,23 @@
+{
+    "name": "seu-projeto",
+    "version": "1.0.0",
+    "description": "Descrição do seu projeto",
+    "main": "index.js",
+    "scripts": {
+      "start": "node app.js"
+    },
+    "keywords": [
+      "EcoTour",
+      "EmailJS",
+      "seu",
+      "outros",
+      "keywords"
+    ],
+    "author": "Seu Nome",
+    "license": "MIT",
+    "dependencies": {
+      "@emailjs/browser": "^2.6.0"
+      
+    }
+  }
+  

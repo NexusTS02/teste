@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eco Tour</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+</head>
+<body>
+
+    <header>
+        <div class="logo">
+            <img src="imagens/logo/logo.png" alt="Logo EcoTour">
+            <h1 style="font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;">EcoTour</h1>
+        </div>
+    </header>
+    
+
+   
+    <nav class="menu">
+        <ul>
+            <li><a href="index.html">Início</a></li>
+            <li><a href="dicas_eco.html">Dicas Eco</a></li>
+            <li class="submenu">
+                <a href="#">Locais Turísticos</a>
+                <ul class="submenu-list">
+                    <li><a href="bonito_ms/bonito_ms.html">Bonito-MS</a></li>
+                    <li><a href="destino2.html">Jalapão-TO</a></li>
+                    <li><a href="destino3.html">Chapada Diamantina-BA</a></li>
+                    <li><a href="destino4.html">Lençóis Maranhenses-MA</a></li>
+                    <li><a href="destino5.html">Serra do Cipo-MG</a></li>
+                    <li><a href="destino6.html">Ilha Grande-RJ</a></li>
+                </ul>
+            </li>
+            <li><a href="nossa_missao.html">Nossa Missão</a></li>
+        </ul>
+    </nav>
+   
+    <main>
+        <div class="destaques-container">
+            <section id="destaques" class="content-block">
+                <h2>Descubra o Turismo Sustentável com a EcoTour</h2>
+                <p>
+                    Bem-vindo à EcoTour! Sua fonte confiável para experiências de turismo sustentável no Brasil. Explore locais incríveis, conheça culturas autênticas e contribua para a preservação do meio ambiente.
+                </p>
+            </section>
+        </div>
+    
+        <div class="destinos-container">
+            <section id="destinos" class="container">
+                <h2>Alguns dos  Pontos Turísticos Sustentáveis</h2>
+                <div class="destinos-wrapper" id="destaques-carousel">
+                    <!-- O conteúdo do carrossel será inserido dinamicamente aqui -->
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <div class="cadastro">
+        <h3>Cadastre-se para receber informações</h3>
+        <p class="mensagem">Ao se cadastrar, você receberá informações, notícias e indicações de lugares incríveis!</p>
+        <form id="formCadastro">
+            <label for="nome">Nome:</label>
+            <input type="text" id="nome" name="nome" required>
+    
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+    
+            <input type="submit" value="Cadastrar">
+        </form>
+    </div>
+
+    <footer>
+        <p>&copy; 2023 EcoTour. Todos os direitos reservados. <u>Dev by Rodrigo Tavares</u></p>
+    </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // Array de objetos, cada um representando um destino com nome e caminho da imagem
+            const destinos = [
+                { nome: "Bonito-MS", imagem: "imagens/imagembonito.jpg" },
+                { nome: "Jalapão-TO", imagem: "imagens/imagemjalapao.jpg" },
+                { nome: "Chapada Diamantina-BA", imagem: "imagens/imagem_chapada_diamantina.jpg" },
+                { nome: "Lençóis Maranhenses-MA", imagem: "imagens/imagem-lencois-maranhenses.jpg" },
+                { nome: "Serra do Cipo-MG", imagem: "imagens/imagem_serra-do-cipo.jpg" },
+                { nome: "Ilha Grande-RJ", imagem: "imagens/imagem-ilha_grande.jpg" }
+            ];
+
+            // Embaralhar o array para obter uma ordem aleatória
+            const destinosEmbaralhados = shuffle(destinos);
+
+            // Selecionar os três primeiros destinos
+            const destinosParaExibir = destinosEmbaralhados.slice(0, 3);
+
+            // Elemento que conterá as imagens
+            const destaquesCarousel = document.getElementById("destaques-carousel");
+
+            // Adicionar as imagens ao carrossel
+            destinosParaExibir.forEach((destino, index) => {
+                const destinoElement = document.createElement("figure");
+                destinoElement.className = "destino";
+
+                const imagemElement = document.createElement("img");
+                imagemElement.src = destino.imagem;
+                imagemElement.alt = `Destino ${index + 1}`;
+                imagemElement.className = "zoom";
+
+                const destinoInfoElement = document.createElement("figcaption");
+                destinoInfoElement.className = "destino-info";
+
+                const h3Element = document.createElement("h3");
+                h3Element.textContent = destino.nome;
+
+                const saibaMaisLinkElement = document.createElement("a");
+                saibaMaisLinkElement.href = `destino${index + 1}.html`;
+                saibaMaisLinkElement.textContent = "Saiba mais";
+
+                destinoInfoElement.appendChild(h3Element);
+                destinoInfoElement.appendChild(saibaMaisLinkElement);
+
+                destinoElement.appendChild(imagemElement);
+                destinoElement.appendChild(destinoInfoElement);
+
+                destaquesCarousel.appendChild(destinoElement);
+            });
+
+            // Adicione um ouvinte de evento para o formulário de cadastro
+            document.getElementById("formCadastro").addEventListener("submit", function (event) {
+                event.preventDefault(); // Evitar o envio padrão do formul
+                // Obter dados do formulário
+                const formData = new FormData(event.target);
+
+                // Criar objeto a partir do FormData
+                const formDataObject = {};
+                formData.forEach((value, key) => {
+                    formDataObject[key] = value;
+                });
+
+        // Enviar solicitação POST para o servidor (Email.js)
+        fetch('https://api.emailjs.com/api/v1.0/email/send', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer YOUR_EMAILJS_API_KEY', // Substitua com sua chave de API
+            },
+            body: JSON.stringify({
+                service_id: 'service_331xctp', // Substitua com o ID do seu serviço
+                template_id: 'template_1gppz0c', // Substitua com o ID do seu modelo
+                user_id: 'Z2x9UzdhqMzX5_rkv', // Substitua com o seu ID de usuário
+                template_params: formDataObject, // Mantenha os dados do formulário
+            }),
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                alert("Cadastro realizado com sucesso!");
+            } else {
+                alert("Erro ao cadastrar. Tente novamente.");
+            }
+        })
+        .catch(error => {
+            console.error('Erro:', error);
+        });
+    });
+});
+        // Função para embaralhar um array
+        function shuffle(array) {
+            let currentIndex = array.length,
+                randomIndex;
+
+            while (currentIndex !== 0) {
+                randomIndex = Math.floor(Math.random() * currentIndex);
+                currentIndex--;
+
+                [array[currentIndex], array[randomIndex]] = [array[randomIndex], array[currentIndex]];
+            }
+
+            return array;
+        }
+    </script>
+</body>
+</html>

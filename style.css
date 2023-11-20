@@ -1,0 +1,341 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #FDF5E6;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    background-color: #11111f;
+    color: white;
+    text-align: center;
+    padding: 10px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    height: 50px;
+    margin-right: 10px;
+}
+
+.logo h1 {
+    margin: 0;
+    color: white;
+}
+.menu {
+    background-color: #47d7ac;
+    padding: 15px 25px;
+    text-align: center;
+    border: 2px solid #000000;
+    position: relative;
+}
+
+.menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.menu li {
+    display: inline-block;
+    position: relative;
+    font-weight: bold;
+}
+
+.menu a {
+    padding: 15px 25px;
+    text-decoration: none;
+    color: #11111f;
+    transition: transform 0.3s ease-in-out; 
+    font-size: 0.3s ease-in-out;
+}
+
+.menu a:hover {
+    background-color: #11111f;
+    color: #ffffff;
+    padding: 15px 25px;
+    border: 1.5px solid white;
+    transform: scale(1.1);
+    font-size: 1.1em;
+}
+.menu li:hover .submenu {
+    display: block; /* Alteração para 'block' ao passar o mouse sobre o item do menu */
+}
+
+
+.submenu {
+    display: none; 
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 1;
+    min-width: 160px;
+    
+}
+.submenu-list {
+    display: none;
+    position: absolute;
+    top: 100%;
+    width: 300px;
+    left: 0;
+    background-color: #47d7ac;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+.submenu-list a {
+    display: block; /* Ocupar toda a largura do item do submenu */
+    padding: 5px; /* Adicione algum espaço ao redor do texto para um clique mais fácil */
+    text-decoration: none;
+    color: #11111f;
+}
+
+.submenu:hover .submenu-list {
+    display: block;
+    
+}
+
+.submenu-list li {
+    display: block;
+    padding: 10px;
+    text-align: left;
+    width: 280px;
+    white-space: nowrap;
+}
+.submenu-list li:hover {
+    background-color: #11111f;
+}
+
+#destaques {
+    padding: 30px;
+    text-align: center;
+    background-color: #f5f5f5;
+    margin: 20px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    border: 2px solid #11111f;
+}
+
+#destaques h2 {
+    color: #11111f;
+    font-weight: bold;
+    font-size: 32px;
+    margin-bottom: 20px;
+}
+
+#destaques h3 {
+    color: #11111f;
+    font-size: 22px;
+    margin-bottom: 15px;
+}
+
+#destaques p {
+    color: #333;
+    font-size: 18px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.container {
+    text-align: center;
+    background-color: #f5f5f5;
+    margin: 20px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    border: 2px solid #11111f;
+}
+
+.container h2{
+    font-size: 35px;
+    padding: 20px;
+    display: inline-block;
+}
+
+.destinos-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.destino {
+    position: relative;
+    overflow: hidden;
+    width: 30%;
+    border: 2px solid #333;
+    margin: 10px;
+    box-sizing: border-box;
+}
+
+.destino img {
+    max-width: 100%;
+    height: auto;
+    transition: transform 0.3s ease-in-out;
+}
+
+.destino:hover img {
+    transform: scale(1.1);
+}
+
+.destino-info {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+#destaques .destino-info h3 {
+    margin: 0;
+    color: white;
+}
+
+.destino-info a {
+    color: white;
+    text-decoration: none;
+}
+
+.destino-info a:hover {
+    text-decoration: underline;
+}
+
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+footer p {
+    margin: 0;
+}
+
+.content-block {
+    text-align: center;
+    background-color: #f5f5f5;
+    margin: 20px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    border: 2px solid #11111f;
+}
+
+.content-block p{
+    font-size: 18px;
+    padding: 5px;
+}
+
+.content-block ul {
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+}
+
+.content-block li {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.dicas-eco {
+    text-align: center;
+    background-color: #f5f5f5;
+    margin: 20px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    border: 2px solid #11111f;
+    padding: 20px;
+}
+
+.dicas-eco p {
+    font-size: 18px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.dicas-eco ul {
+   list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+}
+
+.dicas-eco li {
+    text-align: left;
+    margin-bottom: 10px;
+    padding-left: 20px;
+    position: relative;
+}
+
+.dicas-eco li:before {
+    content: "\2022";
+    color: #2E7D32;
+    font-weight: bold;
+    display: inline-block;
+    width: 1em;
+    margin-left: -1em;
+    position: absolute;
+}
+/* Adicione o estilo para o formulário de cadastro */
+.cadastro {
+    background-color: white;
+    position: relative;
+    overflow: hidden;
+    border: 2px solid #333;
+    box-sizing: border-box;
+    text-align: center;
+    margin: 20px;
+}
+
+.cadastro h3 {
+    color: #11111f;
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.cadastro form {
+
+    flex-direction: column;
+    align-items: center;
+}
+
+.cadastro label {
+    margin-bottom: 5px;
+    font-size: 16px;
+    
+}
+
+.cadastro input {
+    padding: 8px;
+    margin-bottom: 15px;
+}
+
+.cadastro input[type="submit"] {
+    padding: 10px 20px;
+    background-color: #47d7ac;
+    color: #11111f;
+    border: 2px solid #11111f;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.cadastro input[type="submit"]:hover {
+    background-color: #11111f;
+    color: #ffffff;
+}
+
+/* Adicione o estilo para a mensagem */
+.cadastro .mensagem {
+    font-size: 14px;
+    color: #666;
+    margin-top: 10px;
+}

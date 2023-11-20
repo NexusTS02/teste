@@ -1,0 +1,181 @@
+section {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.quadrado {
+    position: relative;
+    overflow: hidden;
+    height: 500px;
+    width: 55%;
+    margin: 20px 20px 0 20px;
+    border: 2px solid #333;
+    box-sizing: border-box;
+    display: inline-block;
+    vertical-align: top;
+    text-align: center;
+}
+
+.quadrado .conteudo {
+    padding: 12px;
+    box-sizing: border-box;
+    position: relative;
+}
+
+.quadrado h3 {
+    color: #11111f;
+    font-size: 30px;
+    margin: 10px 0;
+}
+
+.quadrado img {
+    max-width: 100%;
+    height: auto;
+    transition: transform 0.3s ease-in-out;
+    cursor: pointer;
+    display: block;
+    margin: auto;
+    border: px solid #333;
+    box-sizing: border-box;
+}
+
+.quadrado .overlay {
+    font-size: large;
+    color: rgb(0, 0, 0);
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+.quadrado ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: left;
+}
+
+.quadrado li {
+    margin-bottom: 5px;
+    padding-left: 20px;
+    position: relative;
+}
+
+.quadrado p {
+    font-size: 20px;
+    margin-bottom: 0px;
+    padding: 0 20px 20px 20px;
+    position: relative;
+}
+
+.quadrado li:before {
+    content: "\2022";
+    color: #2E7D32;
+    font-weight: bold;
+    display: inline-block;
+    width: 1em;
+    margin-left: -1em;
+    position: absolute;
+}
+
+.quadrado .botao {
+    position: absolute;
+    bottom: -20px; /* Ajuste para posicionar 20px acima da borda de baixo */
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 10px 20px;
+    background-color: #47d7ac;
+    color: #11111f;
+    border: 2px solid #11111f;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.quadrado .botao:hover {
+    background-color: #11111f;
+    color: #ffffff;
+}
+
+.mapa {
+    width: 55%;
+    margin-bottom: 20px;
+    border: 2px solid #333;
+}
+
+/* Estilos para o formulário de avaliação */
+.avaliacao {
+    text-align: center;
+    background-color: #f5f5f5;
+    margin: 20px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    border: 2px solid #11111f;
+    padding: 20px;
+}
+
+.avaliacao h3 {
+    color: #11111f;
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.avaliacao label {
+    margin-bottom: 5px;
+    font-size: 16px;
+}
+
+.avaliacao input {
+    padding: 8px;
+    margin-bottom: 15px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.avaliacao input[type="number"] {
+    width: 50px;
+}
+
+.avaliacao button {
+    padding: 10px 20px;
+    background-color: #47d7ac;
+    color: #11111f;
+    border: 2px solid #11111f;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.avaliacao button:hover {
+    background-color: #11111f;
+    color: #ffffff;
+}
+
+/* Estilos para o histórico de avaliações */
+#historico-avaliacoes {
+    margin-top: 20px;
+}
+
+#historico-avaliacoes h4 {
+    color: #11111f;
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+#historico-avaliacoes p {
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+
+/* Estilos para a média de avaliações */
+#media-avaliacoes h4 {
+    color: #11111f;
+    font-size: 20px;
+    margin-top: 20px;
+}
